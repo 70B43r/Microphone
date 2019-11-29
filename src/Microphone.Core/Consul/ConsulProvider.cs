@@ -112,7 +112,7 @@ namespace Microphone.Consul
                 var json = JsonConvert.SerializeObject(payload);
                 var content = new StringContent(json);
 
-                var res = await client.PostAsync(RegisterServiceUrl, content);
+                var res = await client.PutAsync(RegisterServiceUrl, content);
                 if (res.StatusCode != HttpStatusCode.OK)
                 {
                     throw new Exception("Could not register service");
